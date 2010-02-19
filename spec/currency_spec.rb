@@ -9,16 +9,28 @@ describe Currency do
   it 'should return code' do
     @usd.code.should == 'USD'
     @gbp.code.should == 'GBP'
+    @usd[:code].should == 'USD'
+    @gbp[:code].should == 'GBP'
+    @usd['code'].should == 'USD'
+    @gbp['code'].should == 'GBP'
   end
   
   it 'should return symbol' do
     @usd.symbol.should == '$'
     @gbp.symbol.should == '£'
+    @usd[:symbol].should == '$'
+    @gbp[:symbol].should == '£'
+    @usd['symbol'].should == '$'
+    @gbp['symbol'].should == '£'
   end
   
   it 'should return name' do
     @usd.name.should == 'Dollars'
     @gbp.name.should == 'Pounds'
+    @usd[:name].should == 'Dollars'
+    @gbp[:name].should == 'Pounds'
+    @usd['name'].should == 'Dollars'
+    @gbp['name'].should == 'Pounds'
   end
   
   describe 'from_code' do
@@ -45,7 +57,6 @@ describe Currency do
   describe 'exchange_rate' do
     it 'should return a float' do
       Currency.from_code('GBP').exchange_rate.should be_a(Float)
-      puts Currency.from_code('GBP').exchange_rate
     end
     
     it 'should have an exchange rate of 1.0 for the base currency' do

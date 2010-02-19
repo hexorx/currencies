@@ -15,6 +15,10 @@ class Currency
     @exchange_rate = opts['exchange_rate'].to_f if opts['exchange_rate']
   end
   
+  def [](value)
+    self.instance_variable_get("@#{value}")
+  end
+  
   def exchange_rate
     @exchange_rate = nil unless @exchange_currency == Currency.base_currency
     @exchange_rate ||= load_exchange_rate
@@ -42,7 +46,7 @@ class Currency
   def self.from_code(code)
     self.currencies[code.to_s.upcase]
   end
-  
+    
   def self.add(new_currency)
     self.currencies ||= {}
     self.currencies[new_currency.code] = new_currency
