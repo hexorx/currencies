@@ -12,7 +12,7 @@ class Currency
     @name = opts['name']
     @symbol = opts['symbol']
     @exchange_currency = opts['exchange_currency'] || Currency.base_currency
-    @exchange_rate = opts['exchange_rate'].to_f
+    @exchange_rate = opts['exchange_rate'].to_f if opts['exchange_rate']
   end
   
   def exchange_rate
