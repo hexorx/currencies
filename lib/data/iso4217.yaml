@@ -399,12 +399,7 @@ LRD:
   name: Dollars
   symbol: $
   unicode_hex: 36
-LSL: 
-  alt_currency: 
-    code: ZAR
-    name: Rand
-    symbol: R
-    unicode_hex: 82
+LSL:
   code: LSL
   name: Maloti
 LTL: 
@@ -464,19 +459,14 @@ MYR:
   unicode_hex: 
     - 82
     - 77
-MZN: 
+MZN:
   code: MZN
   name: Meticals
   symbol: MT
   unicode_hex: 
     - 77
     - 84
-NAD: 
-  alt_currency: 
-    code: ZAR
-    name: Rand
-    symbol: R
-    unicode_hex: 82
+NAD:
   code: NAD
   name: Dollars
   symbol: $
@@ -515,12 +505,7 @@ OMR:
   name: Riais
   symbol: ﷼
   unicode_hex: 65020
-PAB: 
-  alt_currency: 
-    code: USD
-    name: Dollars
-    symbol: $
-    unicode_hex: 36
+PAB:
   code: PAB
   name: Balboa
   symbol: B/.
@@ -662,14 +647,6 @@ THB:
   symbol: ฿
   unicode_hex: 3647
 TJS: 
-  alt_currency: 
-    code: RUB
-    name: Rubles
-    symbol: руб
-    unicode_hex: 
-      - 1088
-      - 1091
-      - 1073
   code: TJS
   name: Somoni
 TND: 
