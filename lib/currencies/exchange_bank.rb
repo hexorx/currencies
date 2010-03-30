@@ -1,3 +1,5 @@
+require 'thread'
+
 class Currency
   class ExchangeBank
     def self.instance
