@@ -2,6 +2,7 @@ class Currency
   class << self
     attr_accessor :currencies
     attr_accessor :base_currency
+    attr_accessor :major_codes
     attr_accessor :import_exchange_rates
   end
   
@@ -46,7 +47,41 @@ class Currency
   def self.from_code(code)
     self.currencies[code.to_s.upcase]
   end
-    
+
+  def self.major_currencies_selection(currencies)
+    currencies.select { |code, currency| Currency.major_codes.include?(code) }.first
+  end
+
+  def self.best_from_currencies(currencies)
+    return if currencies.nil? || currencies.empty?
+    self.major_currencies_selection(currencies) ? self.major_currencies_selection(currencies)[1] : currencies.first[1]
+  end
+
+  def self.list_from_name(name)
+    self.currencies.select { |code, currency| currency.name == name }
+  end
+
+  def self.list_from_symbol(symbol)
+    self.currencies.select { |code, currency| currency.symbol == symbol }
+  end
+
+  def self.best_from_name(name)
+    self.best_from_currencies(self.list_from_name(name))
+  end
+
+  def self.best_from_symbol(symbol)
+    self.best_from_currencies(self.list_from_symbol(symbol))
+  end
+
+  def self.best_guess(str)
+    return if str.nil? || str.empty?
+    self.from_code(str) || self.best_from_symbol(str) || self.best_from_name(str)
+  end
+
+  def self.code_from_best_guess(str)
+    self.best_guess(str).try(:code)
+  end
+
   def self.add(new_currency)
     self.currencies ||= {}
     self.currencies[new_currency.code] = new_currency
@@ -54,5 +89,6 @@ class Currency
   
   load_file(File.join(File.dirname(__FILE__), '..', 'data', 'iso4217.yaml'))
   self.base_currency = 'USD'
+  self.major_codes = [ "USD", "EUR", "GBP" ]
   self.import_exchange_rates = true
 end
