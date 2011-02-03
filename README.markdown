@@ -10,9 +10,20 @@ Currencies is hosted on GemCutter, so simply run the following:
 
     gem sources -a http://gemcutter.org
     sudo gem install currencies
-    
+
+Or you can install via bundler Gemfile:
+
+    gem 'currencies'
+
+Or you can install via bundler Gemfile with using only ISO4217::Currency (no Currency class):
+
+    gem 'currencies', :require => 'iso4217'
+
 Basic Usage
 -----------
+
+Note that Currency class still exist by default.
+(is inherited from ISO4217::Currency to keep backward compatibility).
 
 There are two ways to get a currency object. The first is to simply make it.
 

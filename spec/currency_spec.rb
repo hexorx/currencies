@@ -337,4 +337,28 @@ describe ISO4217::Currency do
     end
   end
 
+  describe "Currency class" do
+    context "when loaded via 'iso4217' existance" do
+      subject { defined?(Currency) }
+
+      it { should be_false }
+    end
+
+    context "when loaded via 'currencies'" do
+      before { require 'currencies' }
+
+      describe "existance" do
+        subject { defined?(Currency) }
+
+        it { should be_true }
+      end
+
+      describe "superclass" do
+        subject { Currency.superclass }
+
+        it { should == ISO4217::Currency }
+      end
+    end
+  end
+
 end
