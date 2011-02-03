@@ -1,9 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe Currency do
+describe ISO4217::Currency do
   before(:all) do
-    @usd = Currency.from_code(:USD)
-    @gbp = Currency.from_code(:GBP)
+    @usd = ISO4217::Currency.from_code(:USD)
+    @gbp = ISO4217::Currency.from_code(:GBP)
   end
   
   it 'should return code' do
@@ -35,32 +35,32 @@ describe Currency do
   
   describe 'from_code' do
     it 'should return new Currency instance when passed iso4217 currency code' do
-      Currency.from_code('USD').should be_a(Currency)
+      ISO4217::Currency.from_code('USD').should be_a(ISO4217::Currency)
     end
     
     it 'should return a currency with the same code' do
-      Currency.from_code('USD').code.should == 'USD'
-      Currency.from_code('GBP').code.should == 'GBP'
+      ISO4217::Currency.from_code('USD').code.should == 'USD'
+      ISO4217::Currency.from_code('GBP').code.should == 'GBP'
     end
     
     it 'should accept symbol' do
-      Currency.from_code(:USD).code.should == 'USD'
-      Currency.from_code(:GBP).code.should == 'GBP'
+      ISO4217::Currency.from_code(:USD).code.should == 'USD'
+      ISO4217::Currency.from_code(:GBP).code.should == 'GBP'
     end
     
     it 'should work with lower case' do
-      Currency.from_code('usd').code.should == 'USD'
-      Currency.from_code('gbp').code.should == 'GBP'
+      ISO4217::Currency.from_code('usd').code.should == 'USD'
+      ISO4217::Currency.from_code('gbp').code.should == 'GBP'
     end
   end
   
   describe 'exchange_rate' do
     it 'should return a float' do
-      Currency.from_code('GBP').exchange_rate.should be_a(Float)
+      ISO4217::Currency.from_code('GBP').exchange_rate.should be_a(Float)
     end
     
     it 'should have an exchange rate of 1.0 for the base currency' do
-      Currency.from_code(Currency.base_currency).exchange_rate.should == 1.0
+      ISO4217::Currency.from_code(ISO4217::Currency.base_currency).exchange_rate.should == 1.0
     end
   end
 
@@ -71,7 +71,7 @@ describe Currency do
 
     context "with default settings" do
       subject do
-        Currency.major_currencies_selection(currencies)
+        ISO4217::Currency.major_currencies_selection(currencies)
       end
 
       it { should == usd }
@@ -79,8 +79,8 @@ describe Currency do
 
     context "with changed major currency to AUD" do
       subject do
-        Currency.major_codes = [ "AUD" ]
-        Currency.major_currencies_selection(currencies)
+        ISO4217::Currency.major_codes = [ "AUD" ]
+        ISO4217::Currency.major_currencies_selection(currencies)
       end
 
       it { should == aud }
@@ -93,13 +93,13 @@ describe Currency do
     let(:aud) { mock }
 
     context "when given currencies is nil" do
-      subject { Currency.best_from_currencies(nil) }
+      subject { ISO4217::Currency.best_from_currencies(nil) }
 
       it { should be_nil }
     end
 
     context "when given currencies is empty array" do
-      subject { Currency.best_from_currencies([]) }
+      subject { ISO4217::Currency.best_from_currencies([]) }
 
       it { should be_nil }
     end
@@ -107,8 +107,8 @@ describe Currency do
     context "when major currency exist within currencies" do
       let(:valid_currencies) { mock(:nil? => false, :empty? => false) }
       subject do
-        Currency.stub!(:major_currencies_selection => [mock, usd])
-        Currency.best_from_currencies(valid_currencies)
+        ISO4217::Currency.stub!(:major_currencies_selection => [mock, usd])
+        ISO4217::Currency.best_from_currencies(valid_currencies)
       end
 
       it { should == usd }
@@ -117,8 +117,8 @@ describe Currency do
     context "when major currency does not exist within currencies" do
       let(:valid_currencies) { [ [mock, pln], [mock, aud] ] }
       subject do
-        Currency.stub!(:major_currencies_selection => nil)
-        Currency.best_from_currencies(valid_currencies)
+        ISO4217::Currency.stub!(:major_currencies_selection => nil)
+        ISO4217::Currency.best_from_currencies(valid_currencies)
       end
 
       it { should == pln }
@@ -136,8 +136,8 @@ describe Currency do
     let(:currencies) { euro + dollars }
 
     subject do
-      Currency.stub!(:currencies => currencies)
-      Currency.list_from_name("Dollars")
+      ISO4217::Currency.stub!(:currencies => currencies)
+      ISO4217::Currency.list_from_name("Dollars")
     end
 
     it { should == dollars }
@@ -154,8 +154,8 @@ describe Currency do
     let(:currencies) { euro + dollars }
 
     subject do
-      Currency.stub!(:currencies => currencies)
-      Currency.list_from_symbol("$")
+      ISO4217::Currency.stub!(:currencies => currencies)
+      ISO4217::Currency.list_from_symbol("$")
     end
 
     it { should == dollars }
@@ -166,30 +166,30 @@ describe Currency do
     let(:list_from_name) { mock }
     describe "behavior" do
       before do
-        Currency.stub!(
+        ISO4217::Currency.stub!(
           :best_from_currencies => nil,
           :list_from_name => list_from_name
         )
       end
-      after { Currency.best_from_name(name) }
+      after { ISO4217::Currency.best_from_name(name) }
 
       it "should select best from list of currencies with given name" do
-        Currency.should_receive(:best_from_currencies).with(list_from_name)
+        ISO4217::Currency.should_receive(:best_from_currencies).with(list_from_name)
       end
 
       it "should select list of currencies with given name" do
-        Currency.should_receive(:list_from_name).with(name).and_return(list_from_name)
+        ISO4217::Currency.should_receive(:list_from_name).with(name).and_return(list_from_name)
       end
     end
 
     describe "returns" do
       let(:best_from_currencies) { mock }
       subject do
-        Currency.stub!(
+        ISO4217::Currency.stub!(
           :best_from_currencies => best_from_currencies,
           :list_from_name => list_from_name
         )
-        Currency.best_from_name(name)
+        ISO4217::Currency.best_from_name(name)
       end
 
       it { should == best_from_currencies }
@@ -201,30 +201,30 @@ describe Currency do
     let(:list_from_symbol) { mock }
     describe "behavior" do
       before do
-        Currency.stub!(
+        ISO4217::Currency.stub!(
           :best_from_currencies => nil,
           :list_from_symbol => list_from_symbol
         )
       end
-      after { Currency.best_from_symbol(symbol) }
+      after { ISO4217::Currency.best_from_symbol(symbol) }
 
       it "should select best from list of currencies with given symbol" do
-        Currency.should_receive(:best_from_currencies).with(list_from_symbol)
+        ISO4217::Currency.should_receive(:best_from_currencies).with(list_from_symbol)
       end
 
       it "should select list of currencies with given symbol" do
-        Currency.should_receive(:list_from_symbol).with(symbol).and_return(list_from_symbol)
+        ISO4217::Currency.should_receive(:list_from_symbol).with(symbol).and_return(list_from_symbol)
       end
     end
 
     describe "returns" do
       let(:best_from_currencies) { mock }
       subject do
-        Currency.stub!(
+        ISO4217::Currency.stub!(
           :best_from_currencies => best_from_currencies,
           :list_from_symbol => list_from_symbol
         )
-        Currency.best_from_symbol(symbol)
+        ISO4217::Currency.best_from_symbol(symbol)
       end
 
       it { should == best_from_currencies }
@@ -236,21 +236,21 @@ describe Currency do
     let(:string) { mock(:nil? => false, :empty? => false) }
 
     context "when string not given" do
-      subject { Currency.best_guess(nil) }
+      subject { ISO4217::Currency.best_guess(nil) }
 
       it { should be_nil }
     end
 
     context "when given empty string" do
-      subject { Currency.best_guess("") }
+      subject { ISO4217::Currency.best_guess("") }
 
       it { should be_nil }
     end
 
     context "when code equal to string exist" do
       subject do
-        Currency.stub!(:from_code).with(string).and_return(eur)
-        Currency.best_guess(string)
+        ISO4217::Currency.stub!(:from_code).with(string).and_return(eur)
+        ISO4217::Currency.best_guess(string)
       end
 
       it { should == eur }
@@ -258,9 +258,9 @@ describe Currency do
 
     context "when best symbol equal to string exist" do
       subject do
-        Currency.stub!(:from_code).with(string).and_return(nil)
-        Currency.stub!(:best_from_symbol).with(string).and_return(eur)
-        Currency.best_guess(string)
+        ISO4217::Currency.stub!(:from_code).with(string).and_return(nil)
+        ISO4217::Currency.stub!(:best_from_symbol).with(string).and_return(eur)
+        ISO4217::Currency.best_guess(string)
       end
 
       it { should == eur }
@@ -268,10 +268,10 @@ describe Currency do
 
     context "when best name equal to string exist" do
       subject do
-        Currency.stub!(:from_code).with(string).and_return(nil)
-        Currency.stub!(:best_from_symbol).with(string).and_return(nil)
-        Currency.stub!(:best_from_name).with(string).and_return(eur)
-        Currency.best_guess(string)
+        ISO4217::Currency.stub!(:from_code).with(string).and_return(nil)
+        ISO4217::Currency.stub!(:best_from_symbol).with(string).and_return(nil)
+        ISO4217::Currency.stub!(:best_from_name).with(string).and_return(eur)
+        ISO4217::Currency.best_guess(string)
       end
 
       it { should == eur }
@@ -279,10 +279,10 @@ describe Currency do
 
     context "when string not exist in any form" do
       subject do
-        Currency.stub!(:from_code).with(string).and_return(nil)
-        Currency.stub!(:best_from_symbol).with(string).and_return(nil)
-        Currency.stub!(:best_from_name).with(string).and_return(nil)
-        Currency.best_guess(string)
+        ISO4217::Currency.stub!(:from_code).with(string).and_return(nil)
+        ISO4217::Currency.stub!(:best_from_symbol).with(string).and_return(nil)
+        ISO4217::Currency.stub!(:best_from_name).with(string).and_return(nil)
+        ISO4217::Currency.best_guess(string)
       end
 
       it { should be_nil }
@@ -290,10 +290,10 @@ describe Currency do
 
     describe "behavior" do
       it "should run methods in proper order" do
-        Currency.should_receive(:from_code).ordered.with("string").and_return(nil)
-        Currency.should_receive(:best_from_symbol).ordered.with("string").and_return(nil)
-        Currency.should_receive(:best_from_name).ordered.with("string").and_return(nil)
-        Currency.best_guess("string")
+        ISO4217::Currency.should_receive(:from_code).ordered.with("string").and_return(nil)
+        ISO4217::Currency.should_receive(:best_from_symbol).ordered.with("string").and_return(nil)
+        ISO4217::Currency.should_receive(:best_from_name).ordered.with("string").and_return(nil)
+        ISO4217::Currency.best_guess("string")
       end
     end
   end
@@ -305,8 +305,8 @@ describe Currency do
 
     context "when there is best guess" do
       subject do
-        Currency.stub!(:best_guess).with(string).and_return(best_guess)
-        Currency.code_from_best_guess(string)
+        ISO4217::Currency.stub!(:best_guess).with(string).and_return(best_guess)
+        ISO4217::Currency.code_from_best_guess(string)
       end
 
       it { should == code }
@@ -316,19 +316,19 @@ describe Currency do
       let(:best_guess) { mock(:try => nil) }
 
       subject do
-        Currency.stub!(:best_guess).with(string).and_return(best_guess)
-        Currency.code_from_best_guess(string)
+        ISO4217::Currency.stub!(:best_guess).with(string).and_return(best_guess)
+        ISO4217::Currency.code_from_best_guess(string)
       end
 
       it { should be_nil }
     end
 
     describe "behavior" do
-      before { Currency.stub!(:best_guess).with(string).and_return(best_guess) }
-      after { Currency.code_from_best_guess(string) }
+      before { ISO4217::Currency.stub!(:best_guess).with(string).and_return(best_guess) }
+      after { ISO4217::Currency.code_from_best_guess(string) }
 
       it "should call .best_guess" do
-        Currency.should_receive(:best_guess).with(string).and_return(best_guess)
+        ISO4217::Currency.should_receive(:best_guess).with(string).and_return(best_guess)
       end
 
       it "should call #code on best guessed" do

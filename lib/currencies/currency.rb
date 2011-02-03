@@ -1,4 +1,7 @@
-class Currency
+module ISO4217
+end
+
+class ISO4217::Currency
   class << self
     attr_accessor :currencies
     attr_accessor :base_currency
@@ -12,7 +15,7 @@ class Currency
     @code = iso_code.to_s.upcase
     @name = opts['name']
     @symbol = opts['symbol']
-    @exchange_currency = opts['exchange_currency'] || Currency.base_currency
+    @exchange_currency = opts['exchange_currency'] || self.class.base_currency
     @exchange_rate = opts['exchange_rate'].to_f if opts['exchange_rate']
   end
   
@@ -21,14 +24,14 @@ class Currency
   end
   
   def exchange_rate
-    @exchange_rate = nil unless @exchange_currency == Currency.base_currency
+    @exchange_rate = nil unless @exchange_currency == self.class.base_currency
     @exchange_rate ||= load_exchange_rate
   end
   
   def load_exchange_rate
-    @exchange_currency = Currency.base_currency
+    @exchange_currency = self.class.base_currency
     return 1.0 if @code == @exchange_currency
-    if Currency.import_exchange_rates
+    if self.class.import_exchange_rates
       http = Net::HTTP.new('download.finance.yahoo.com', 80)
       response = http.get("/d/quotes.csv?e=.csv&f=sl1d1t1&s=#{@code}#{@exchange_currency}=X")
       rate = response.body.split(',')[1]
@@ -49,7 +52,7 @@ class Currency
   end
 
   def self.major_currencies_selection(currencies)
-    currencies.select { |code, currency| Currency.major_codes.include?(code) }.first
+    currencies.select { |code, currency| self.major_codes.include?(code) }.first
   end
 
   def self.best_from_currencies(currencies)

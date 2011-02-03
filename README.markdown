@@ -16,15 +16,15 @@ Basic Usage
 
 There are two ways to get a currency object. The first is to simply make it.
 
-    Currency.new('USD', :name => 'Dollars', :symbol => '$', :exchange_rate => 1)
+    ISO4217::Currency.new('USD', :name => 'Dollars', :symbol => '$', :exchange_rate => 1)
     
 Or you can lookup a currency by its ISO 4217 code using the *from_code* method.
 
-    Currency.from_code('USD')
+    ISO4217::Currency.from_code('USD')
     
 Once you have a Currency instance you can get basic information about it.
 
-    currency = Currency.from_code('USD')
+    currency = ISO4217::Currency.from_code('USD')
     currency.code #=> "USD"
     currency.name #=> "Dollars"
     currency.symbol #=> "$"
@@ -36,12 +36,12 @@ Adding Currencies
 
 Currencies keeps an internal list of currencies for use in the ExchangeBank and to be looked up with the *from_code* method. By default this list contains all the currencies in the ISO 4217 standard. A custom currency can be added using the *add* class method.
     
-    shiny_button = Currency.new('SBTTN', :name => 'Buttons', :symbol => '☼', :exchange_rate => 1000)
-    Currency.add(shiny_button)
+    shiny_button = ISO4217::Currency.new('SBTTN', :name => 'Buttons', :symbol => '☼', :exchange_rate => 1000)
+    ISO4217::Currency.add(shiny_button)
     
 To do a massive addition of currencies you can load a yaml file using the *load_file* class method.
 
-    Currency.load_file('custom_currency.yaml')
+    ISO4217::Currency.load_file('custom_currency.yaml')
     
 And the yaml file should look like ...
 
@@ -54,11 +54,11 @@ Defaults
 
 You can set the base currency by using the *base_currency* class method. This defaults to 'USD'.
 
-    Currency.base_currency => 'GBP'
+    ISO4217::Currency.base_currency => 'GBP'
 
 The exchange rate is either set manually or if nil looked up on Yahoo Finance and cached. If you want to disable looking up the currency set the *import_exchange_rates* class method to false.
 
-    Currency.import_exchange_rates = false
+    ISO4217::Currency.import_exchange_rates = false
 
 
 Money Gem
@@ -66,7 +66,7 @@ Money Gem
 
 To use with the money gem you just set the default bank to the currencies bank.
 
-    Money.default_bank = Currency::ExchangeBank.new
+    Money.default_bank = ISO4217::Currency::ExchangeBank.new
     
 The Currencies ExchangeBank works the same as the one in the money gem except that if an exchange rate isn't set by default it uses what is set in the currencies gem.
 

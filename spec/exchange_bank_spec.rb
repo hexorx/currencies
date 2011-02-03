@@ -1,8 +1,8 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-describe Currency::ExchangeBank do
+describe ISO4217::Currency::ExchangeBank do
   before :each do
-    @bank = Currency::ExchangeBank.new
+    @bank = ISO4217::Currency::ExchangeBank.new
   end
   
   it "returns the previously specified conversion rate" do

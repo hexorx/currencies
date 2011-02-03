@@ -1,6 +1,6 @@
 require 'thread'
 
-class Currency
+class ISO4217::Currency
   class ExchangeBank
     def self.instance
       @@singleton
@@ -32,8 +32,8 @@ class Currency
       if rate
         (cents * rate).floor
       else
-        from_currency = Currency.from_code(from_currency)
-        to_currency = Currency.from_code(to_currency)
+        from_currency = ISO4217::Currency.from_code(from_currency)
+        to_currency = ISO4217::Currency.from_code(to_currency)
                 
         if from_currency && to_currency && from_currency.exchange_rate && to_currency.exchange_rate && (from_currency.exchange_currency == to_currency.exchange_currency)
           ((cents * from_currency.exchange_rate) / to_currency.exchange_rate).floor
