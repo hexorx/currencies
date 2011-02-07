@@ -29,6 +29,7 @@ Gem::Specification.new do |s|
      "lib/currencies/exchange_bank.rb",
      "lib/currencies/extentions.rb",
      "lib/data/iso4217.yaml",
+     "lib/iso4217.rb",
      "spec/currency_spec.rb",
      "spec/exchange_bank_spec.rb",
      "spec/spec_helper.rb"
