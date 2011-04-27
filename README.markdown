@@ -65,7 +65,7 @@ Defaults
 
 You can set the base currency by using the *base_currency* class method. This defaults to 'USD'.
 
-    ISO4217::Currency.base_currency => 'GBP'
+    ISO4217::Currency.base_currency = 'GBP'
 
 The exchange rate is either set manually or if nil looked up on Yahoo Finance and cached. If you want to disable looking up the currency set the *import_exchange_rates* class method to false.
 
