@@ -425,6 +425,9 @@ MAD:
 MDL: 
   code: MDL
   name: Lei
+MKD:
+  code: MKD
+  name: Macedonian Denar
 MNK: 
   code: MNK
   name: Kyats
