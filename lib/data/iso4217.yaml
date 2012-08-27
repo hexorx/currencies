@@ -135,6 +135,9 @@ CAD:
   name: Dollars
   symbol: $
   unicode_hex: 36
+CDF:
+  code: CDF
+  name: Franc
 CHF: 
   code: CHF
   name: "Switzerland Francs"
@@ -219,6 +222,9 @@ EUR:
   name: Euro
   symbol: €
   unicode_hex: 8364
+FJD:
+  code: FJD
+  name: Dollar
 FKP: 
   code: FKP
   name: Pounds
@@ -431,6 +437,12 @@ MDL:
 MKD:
   code: MKD
   name: "Macedonian Denar"
+MGA:
+  code: MGA
+  name: Ariary
+MMK:
+  code: MMK
+  name: Kyat
 MNK: 
   code: MNK
   name: Kyats
@@ -658,6 +670,9 @@ THB:
 TJS: 
   code: TJS
   name: Somoni
+TMM: 
+  code: TMM
+  name: Manat
 TND: 
   code: TND
   name: Dollars
@@ -763,3 +778,4 @@ ZWD:
   unicode_hex: 
     - 90
     - 36
+
