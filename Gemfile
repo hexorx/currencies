@@ -1,6 +1,5 @@
-source :rubygems
+source 'https://rubygems.org'
+gem "rake"
 
-gem 'jeweler', '=1.4.0'
-gem 'rspec', '=1.3.1'
-
-# /* vim: set filetype=ruby : */
+# Specify your gem's dependencies in currencies.gemspec
+gemspec
