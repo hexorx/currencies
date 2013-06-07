@@ -62,6 +62,9 @@ BBD:
   name: Dollars
   symbol: $
   unicode_hex: 36
+BDT: 
+  code: BDT
+  name: Taka
 BGN: 
   code: BGN
   name: Leva
@@ -104,9 +107,6 @@ BSD:
   name: Dollars
   symbol: $
   unicode_hex: 36
-BTD: 
-  code: BTD
-  name: Taka
 BTN: 
   code: BTN
   name: Ngultrum
@@ -135,6 +135,9 @@ CAD:
   name: Dollars
   symbol: $
   unicode_hex: 36
+CDF:
+  code: CDF
+  name: Franc
 CHF: 
   code: CHF
   name: "Switzerland Francs"
@@ -219,6 +222,9 @@ EUR:
   name: Euro
   symbol: €
   unicode_hex: 8364
+FJD:
+  code: FJD
+  name: Dollar
 FKP: 
   code: FKP
   name: Pounds
@@ -278,6 +284,9 @@ HRK:
   unicode_hex: 
     - 107
     - 110
+HTG: 
+  code: HTG
+  name: "Haitian Gourde"
 HUF: 
   code: HUF
   name: Forint
@@ -425,6 +434,15 @@ MAD:
 MDL: 
   code: MDL
   name: Lei
+MKD:
+  code: MKD
+  name: "Macedonian Denar"
+MGA:
+  code: MGA
+  name: Ariary
+MMK:
+  code: MMK
+  name: Kyat
 MNK: 
   code: MNK
   name: Kyats
@@ -633,6 +651,9 @@ SRD:
 STD: 
   code: STD
   name: Dobras
+SVC: 
+  code: SVC
+  name: "Salvadoran Colón"
 SYP: 
   code: SYP
   name: Pounds
@@ -649,6 +670,9 @@ THB:
 TJS: 
   code: TJS
   name: Somoni
+TMM: 
+  code: TMM
+  name: Manat
 TND: 
   code: TND
   name: Dollars
@@ -754,3 +778,4 @@ ZWD:
   unicode_hex: 
     - 90
     - 36
+
