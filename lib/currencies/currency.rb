@@ -29,7 +29,7 @@ class ISO4217::Currency
   end
   
   def load_exchange_rate
-    @exchange_currency = self.class.base_currency
+    @exchange_currency = self.class.base_currency unless @exchange_currency
     return 1.0 if @code == @exchange_currency
     if self.class.import_exchange_rates
       http = Net::HTTP.new('download.finance.yahoo.com', 80)
