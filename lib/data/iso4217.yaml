@@ -202,6 +202,9 @@ DOP:
 DZD: 
   code: DZD
   name: Dinars
+ECS: 
+  code: ECS
+  name: Sucre
 EEK: 
   code: EEK
   name: Krooni
