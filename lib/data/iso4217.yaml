@@ -37,7 +37,7 @@ AUD:
   symbol: $
   unicode_hex: 36
 AWG: 
-  alt_name: "Florins
+  alt_name: "Florins"
   code: AWG
   name: "Aruban Guilders"
   symbol: ƒ
@@ -176,7 +176,7 @@ CVE:
   name: "Cape Verde Escudos"
 CZK: 
   code: CZK
-  name: "Czech Koruny
+  name: "Czech Koruny"
   symbol: Kč
   unicode_hex: 
     - 75
@@ -207,7 +207,7 @@ ECS:
   name: "Ecuador Sucre"
 EEK: 
   code: EEK
-  name: "Krooni
+  name: "Krooni"
   symbol: kr
   unicode_hex: 
     - 107
@@ -222,12 +222,12 @@ ETB:
   name: "Ethopia Birr"
 EUR: 
   code: EUR
-  name: "Euro
+  name: "Euro"
   symbol: €
   unicode_hex: 8364
 FJD:
   code: FJD
-  name: "Fiji Dollar
+  name: "Fiji Dollar"
 FKP: 
   code: FKP
   name: "Falkland Islands Pounds"
@@ -240,7 +240,7 @@ GBP:
   unicode_hex: 163
 GEL: 
   code: GEL
-  name: "Lari
+  name: "Lari"
 GGP: 
   code: GGP
   name: "Pound Sterling"
@@ -436,7 +436,7 @@ MAD:
   name: "Moroccan Dirhams"
 MDL: 
   code: MDL
-  name: "Moldovan Lei
+  name: "Moldovan Lei"
 MKD:
   code: MKD
   name: "Macedonian Denar"
@@ -448,7 +448,7 @@ MMK:
   name: "Myanmar Kyat"
 MNK: 
   code: MNK
-  name: "Kyats
+  name: "Kyats"
 MNT: 
   code: MNT
   name: "Mongolian Tugriks"
