@@ -240,7 +240,7 @@ GBP:
   unicode_hex: 163
 GEL: 
   code: GEL
-  name: "Lari"
+  name: "Lari
 GGP: 
   code: GGP
   name: "Pound Sterling"
@@ -542,7 +542,7 @@ PEN:
     - "0x50,0x2f,0x2e"
 PGK: 
   code: PGK
-  name: "Kina
+  name: "Kina"
 PHP: 
   code: PHP
   name: "Phillippines Pesos"
@@ -620,7 +620,7 @@ SCR:
   unicode_hex: 8360
 SDG: 
   code: SDG
-  name: "Pounds
+  name: "Pounds"
 SEK: 
   code: SEK
   name: "Sweden Kronor"
