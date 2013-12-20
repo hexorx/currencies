@@ -1,6 +1,9 @@
 require 'thread'
 
 class ISO4217::Currency
+  class UnknownRate < StandardError
+  end
+
   class ExchangeBank
     def self.instance
       @@singleton
@@ -38,7 +41,7 @@ class ISO4217::Currency
         if from_currency && to_currency && from_currency.exchange_rate && to_currency.exchange_rate && (from_currency.exchange_currency == to_currency.exchange_currency)
           ((cents * from_currency.exchange_rate) / to_currency.exchange_rate).floor
         else
-          raise Money::UnknownRate, "No conversion rate known for '#{from_currency}' -> '#{to_currency}'"
+          raise UnknownRate, "No conversion rate known for '#{from_currency}' -> '#{to_currency}'"
         end
       end
     end
