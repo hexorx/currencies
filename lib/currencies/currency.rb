@@ -14,6 +14,7 @@ class ISO4217::Currency
   def initialize(iso_code,opts={})
     @code = iso_code.to_s.upcase
     @name = opts['name']
+    @full_name = opts['full_name']
     @symbol = opts['symbol']
     @exchange_currency = opts['exchange_currency'] || self.class.base_currency
     @exchange_rate = opts['exchange_rate'].to_f if opts['exchange_rate']
