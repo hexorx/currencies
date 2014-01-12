@@ -282,7 +282,7 @@ FKP:
 GBP:
   code: GBP
   name: Pounds
-  full_name: "Pounds"
+  full_name: "Pound Sterling"
   symbol: £
   unicode_hex: 163
 GEL:
