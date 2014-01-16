@@ -35,6 +35,15 @@ describe ISO4217::Currency do
     @gbp['name'].should == 'Pounds'
   end
 
+  it 'should return full name' do
+    @usd.full_name.should == 'United States Dollars'
+    @gbp.full_name.should == 'Pound Sterling'
+    @usd[:full_name].should == 'United States Dollars'
+    @gbp[:full_name].should == 'Pound Sterling'
+    @usd['full_name'].should == 'United States Dollars'
+    @gbp['full_name'].should == 'Pound Sterling'
+  end
+
   describe 'from_code' do
     it 'should return new Currency instance when passed iso4217 currency code' do
       ISO4217::Currency.from_code('USD').should be_a(ISO4217::Currency)

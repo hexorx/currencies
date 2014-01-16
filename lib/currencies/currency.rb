@@ -8,26 +8,27 @@ class ISO4217::Currency
     attr_accessor :major_codes
     attr_accessor :import_exchange_rates
   end
-  
-  attr_reader :code, :symbol, :name, :exchange_currency
-  
+
+  attr_reader :code, :symbol, :name, :full_name, :exchange_currency
+
   def initialize(iso_code,opts={})
     @code = iso_code.to_s.upcase
     @name = opts['name']
+    @full_name = opts['full_name']
     @symbol = opts['symbol']
     @exchange_currency = opts['exchange_currency'] || self.class.base_currency
     @exchange_rate = opts['exchange_rate'].to_f if opts['exchange_rate']
   end
-  
+
   def [](value)
     self.instance_variable_get("@#{value}")
   end
-  
+
   def exchange_rate
     @exchange_rate = nil unless @exchange_currency == self.class.base_currency
     @exchange_rate ||= load_exchange_rate
   end
-  
+
   def load_exchange_rate
     @exchange_currency = self.class.base_currency unless @exchange_currency
     return 1.0 if @code == @exchange_currency
@@ -39,8 +40,8 @@ class ISO4217::Currency
     else
       nil
     end
-  end  
-    
+  end
+
   def self.load_file(file)
     YAML.load_file(file).each do |code,options|
       self.add(self.new(code,options))
@@ -62,6 +63,10 @@ class ISO4217::Currency
 
   def self.list_from_name(name)
     self.currencies.select { |code, currency| currency.name == name }
+  end
+
+  def self.list_from_full_name(name)
+    self.currencies.select { |code, currency| currency.full_name == name }
   end
 
   def self.list_from_symbol(symbol)
@@ -89,7 +94,7 @@ class ISO4217::Currency
     self.currencies ||= {}
     self.currencies[new_currency.code] = new_currency
   end
-  
+
   load_file(File.join(File.dirname(__FILE__), '..', 'data', 'iso4217.yaml'))
   self.base_currency = 'USD'
   self.major_codes = [ "USD", "EUR", "GBP" ]
