@@ -816,8 +816,8 @@ TMM:
   full_name: "Manat"
 TND:
   code: TND
-  name: Dollars
-  full_name: "Dollars"
+  name: "Dinars"
+  full_name: "Tunisian Dinars"
 TOP:
   code: TOP
   name: Pa'anga
