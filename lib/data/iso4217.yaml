@@ -328,7 +328,7 @@ GYD:
 HKD:
   code: HKD
   name: Dollars
-  full_name: "HongKong Dollars"
+  full_name: "Hong Kong Dollars"
   symbol: $
   unicode_hex: 36
 HNL:
