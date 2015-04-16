@@ -899,6 +899,10 @@ VND:
   full_name: "Viet Nam Dong"
   symbol: ₫
   unicode_hex: 8363
+VUV:
+  code: VUV
+  name: Vatu
+  full_name: "Vanuatu Vatu"
 XAF:
   code: XAF
   name: "Communauté Financière Africaine Francs"
@@ -941,4 +945,3 @@ ZWD:
   unicode_hex:
     - 90
     - 36
-
