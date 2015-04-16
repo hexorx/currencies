@@ -907,6 +907,10 @@ VUV:
   code: VUV
   name: Vatu
   full_name: "Vanuatu Vatu"
+WST:
+  code: WST
+  name: Tala
+  full_name: 'Samoan Tala'
 XAF:
   code: XAF
   name: "Communauté Financière Africaine Francs"
