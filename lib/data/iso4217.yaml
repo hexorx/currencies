@@ -31,6 +31,7 @@ ANG:
 AOA:
   code: AOA
   name: Kwanza
+  symbol: Kz
   full_name: "Angolan Kwanza"
 ARS:
   code: ARS
@@ -381,7 +382,7 @@ INR:
   code: INR
   name: Rupees
   full_name: "Indian Rupees"
-  symbol: ₨
+  symbol: ₹
   unicode_hex: 8360
 IQD:
   code: IQD
@@ -549,6 +550,10 @@ MNT:
   full_name: "Mongolian Tugriks"
   symbol: ₮
   unicode_hex: 8366
+MOP:
+  code: MOP
+  name: Pataca
+  full_name: "Macanese Pataca"
 MRO:
   code: MRO
   name: Ouguiyas
@@ -803,7 +808,7 @@ SZL:
 THB:
   code: THB
   name: Baht
-  full_name: "Thaliand Baht"
+  full_name: "Thailand Baht"
   symbol: ฿
   unicode_hex: 3647
 TJS:
@@ -899,6 +904,14 @@ VND:
   full_name: "Viet Nam Dong"
   symbol: ₫
   unicode_hex: 8363
+VUV:
+  code: VUV
+  name: Vatu
+  full_name: "Vanuatu Vatu"
+WST:
+  code: WST
+  name: Tala
+  full_name: 'Samoan Tala'
 XAF:
   code: XAF
   name: "Communauté Financière Africaine Francs"
@@ -929,10 +942,11 @@ ZAR:
   full_name: "South Africa Rand"
   symbol: R
   unicode_hex: 82
-ZMK:
-  code: ZMK
+ZMW:
+  code: ZMW
   name: Kwacha
-  full_name: "Kwacha"
+  full_name: "Zambian Kwacha"
+  symbol: K
 ZWD:
   code: ZWD
   name: "Zimbabwe Dollars"
