@@ -550,6 +550,10 @@ MNT:
   full_name: "Mongolian Tugriks"
   symbol: ₮
   unicode_hex: 8366
+MOP:
+  code: MOP
+  name: Pataca
+  full_name: "Macanese Pataca"
 MRO:
   code: MRO
   name: Ouguiyas
