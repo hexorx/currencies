@@ -41,9 +41,9 @@ describe ISO4217::Currency::ExchangeBank do
     block = lambda { @bank.exchange(10, "USD", "EUR") }
     block.should_not raise_error
   end
-  
-  it "raises Money::UnknownRate upon conversion if the conversion rate is unknown" do
+
+  it "raises ISO4217::Currency::UnknownRate upon conversion if the conversion rate is unknown" do
     block = lambda { @bank.exchange(10, "USD", "BUTTON") }
-    block.should raise_error(Money::UnknownRate)
+    block.should raise_error(ISO4217::Currency::UnknownRate)
   end
 end
