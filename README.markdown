@@ -6,9 +6,8 @@ If you are tracking any kind of assets the currencies gem is for you. It contain
 Installation
 ------------
 
-Currencies is hosted on GemCutter, so simply run the following:
+Currencies is hosted on RubyGems, so simply run the following:
 
-    gem sources -a http://gemcutter.org
     sudo gem install currencies
 
 Or you can install via bundler Gemfile:
