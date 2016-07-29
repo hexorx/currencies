@@ -930,10 +930,11 @@ ZAR:
   full_name: "South Africa Rand"
   symbol: R
   unicode_hex: 82
-ZMK:
-  code: ZMK
+ZMW:
+  code: ZMW
   name: Kwacha
-  full_name: "Kwacha"
+  full_name: "Zambian Kwacha"
+  symbol: K
 ZWD:
   code: ZWD
   name: "Zimbabwe Dollars"
@@ -942,4 +943,3 @@ ZWD:
   unicode_hex:
     - 90
     - 36
-
