@@ -468,10 +468,10 @@ KZT:
   code: KZT
   name: Tenege
   full_name: "Kazhakstan Tenege"
-  symbol: лв
+  symbol: тг
   unicode_hex:
-    - 1083
-    - 1074
+    - 1058
+    - 1043
 LAK:
   code: LAK
   name: Kips
