@@ -56,11 +56,9 @@ AZN:
   code: AZN
   name: "New Manats"
   full_name: "Azerbaijan New Manats"
-  symbol: ман
+  symbol: ₼
   unicode_hex:
-    - 1084
-    - 1072
-    - 1085
+    - 8380
 BAM:
   code: BAM
   name: "Convertible Marka"
