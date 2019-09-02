@@ -147,6 +147,14 @@ BYN:
   unicode_hex:
     - 112
     - 46
+BYR:
+  code: BYR
+  name: Rubles
+  full_name: "Belarussian Rubles"
+  symbol: p.
+  unicode_hex:
+    - 112
+    - 46
 BZD:
   code: BZD
   name: Dollars
