@@ -56,11 +56,11 @@ AZN:
   code: AZN
   name: "New Manats"
   full_name: "Azerbaijan New Manats"
-  symbol: ман
+  symbol: AZN
   unicode_hex:
-    - 1084
-    - 1072
-    - 1085
+    - 65
+    - 90
+    - 78
 BAM:
   code: BAM
   name: "Convertible Marka"
@@ -139,6 +139,14 @@ BWP:
   full_name: "Botswana Pulas"
   symbol: P
   unicode_hex: 80
+BYN:
+  code: BYN
+  name: Rubles
+  full_name: "Belarussian Rubles"
+  symbol: p.
+  unicode_hex:
+    - 112
+    - 46
 BYR:
   code: BYR
   name: Rubles
@@ -290,6 +298,7 @@ GEL:
   code: GEL
   name: Lari
   full_name: "Lari"
+  symbol: ₾
 GGP:
   code: GGP
   name: Pounds
@@ -468,10 +477,10 @@ KZT:
   code: KZT
   name: Tenege
   full_name: "Kazhakstan Tenege"
-  symbol: лв
+  symbol: тг
   unicode_hex:
-    - 1083
-    - 1074
+    - 1058
+    - 1043
 LAK:
   code: LAK
   name: Kips
