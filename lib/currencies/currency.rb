@@ -24,6 +24,10 @@ class ISO4217::Currency
     self.instance_variable_get("@#{value}")
   end
 
+  def symbol_or_code
+    self.symbol || self.code
+  end
+
   def exchange_rate
     @exchange_rate = nil unless @exchange_currency == self.class.base_currency
     @exchange_rate ||= load_exchange_rate
